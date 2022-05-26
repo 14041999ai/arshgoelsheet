@@ -1,0 +1,22 @@
+int digitalSquare(int n){
+        int sum=0, tmp;
+        while(n){
+            tmp=n%10;
+            sum+=tmp*tmp;
+            n/=10;
+        }
+        return sum;
+    }
+    bool isHappy(int n) {
+        
+        int slow, fast;
+        slow=fast=n;
+        do{
+            slow=digitalSquare(slow);
+            fast=digitalSquare(fast);
+            fast=digitalSquare(fast);
+        }while(slow!=fast);
+        
+        if(slow==1) return 1;
+        else return 0;
+    }
